@@ -21,6 +21,7 @@ def main():
     plt.title('Result'), plt.xticks([]), plt.yticks([])
     plt.show()
 
+# HSV giữ màu sắc gốc tốt, trực quan.
 def use_hsv(img):
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
@@ -31,6 +32,7 @@ def use_hsv(img):
     hsv_img = cv2.merge((h, s, v_eq))
     return cv2.cvtColor(hsv_img, cv2.COLOR_HSV2BGR)
 
+# YCbCr hiệu quả cho nén ảnh nhưng dễ gây trôi màu, bạc màu.
 def use_ycbcr(img):
     ycbcr = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
 
