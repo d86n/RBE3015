@@ -8,13 +8,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    img = cv2.imread("../images/img4.1.jpg")
+    img = cv2.imread("../images/img7.2.jpg")
     result = use_hsv(img)
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB)
 
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(30, 20))
     plt.subplot(121), plt.imshow(img)
     plt.title('Input Image'), plt.xticks([]), plt.yticks([])
     plt.subplot(122), plt.imshow(result)
