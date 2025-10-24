@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 
 def main():
     img = cv2.imread("../images/img7.1.jpg")
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    result = equalize_hist(img)
+    result = equalize_hist(gray)
 
     plt.figure(figsize=(30, 20))
     plt.subplot(121), plt.imshow(img, cmap='gray')
@@ -33,7 +33,7 @@ def equalize_hist(img):
     for i in range(1, 256):
         cdf[i] = cdf[i - 1] + pdf[i]
 
-    # Tạo bảng tra (LUT)
+    # Tạo bảng tra cứu (Look-Up Table - LUT)
     l = 256
     trans = [0] * l
     for i in range(l):
