@@ -8,11 +8,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    img = cv2.imread("../images/img7.9.jpg")
-    result = use_rgb(img)
+    img = cv2.imread("../images/img7.1.jpg")
+    result = use_hsv(img)
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     result = cv2.cvtColor(result, cv2.COLOR_BGR2RGB)
+    cv2.imwrite("ggg.jpg", result)
 
     plt.figure(figsize=(30, 20))
     plt.subplot(121), plt.imshow(img)
@@ -20,17 +21,6 @@ def main():
     plt.subplot(122), plt.imshow(result)
     plt.title('Result'), plt.xticks([]), plt.yticks([])
     plt.show()
-
-def use_rgb(img):
-    rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-    r, g, b = rgb[:, :, 0], rgb[:, :, 1], rgb[:, :, 2]
-
-    r_eq, g_eq, b_eq = equalize_hist(r), equalize_hist(g), equalize_hist(b)
-
-    rgb_img = cv2.merge([r_eq, g_eq, b_eq])
-
-    return cv2.cvtColor(rgb_img, cv2.COLOR_RGB2BGR)
 
 # HSV giữ màu sắc gốc tốt, trực quan.
 def use_hsv(img):

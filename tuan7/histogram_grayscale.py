@@ -3,16 +3,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    img = cv2.imread("../images/img7.1.jpg")
+    img = cv2.imread("anh_toi_1.png")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     result = equalize_hist(gray)
 
     plt.figure(figsize=(30, 20))
-    plt.subplot(121), plt.imshow(img, cmap='gray')
-    plt.title('Input Image'), plt.xticks([]), plt.yticks([])
+    plt.subplot(121), plt.imshow(img)
     plt.subplot(122), plt.imshow(result, cmap='gray')
-    plt.title('Result'), plt.xticks([]), plt.yticks([])
     plt.show()
 
 def equalize_hist(img):
